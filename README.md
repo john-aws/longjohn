@@ -6,7 +6,7 @@ Long stack traces for [node.js](http://nodejs.org/) with configurable call trace
 
 I wrote this while trying to add [long-stack-traces](https://github.com/tlrobinson/long-stack-traces) to my server and realizing that there were issues with support of [EventEmitter::removeListener](http://nodejs.org/api/events.html#events_emitter_removelistener_event_listener).  The node HTTP Server will begin to leak callbacks and any of your own code that relies on removing listeners would not work as anticipated.
 
-So what to do...  I stole the code and rewrote it.  I've added support for removeListener along with the ability to cut off the number of async calls the library will trace.  I hope you like it!
+So what to do...  I stole the code and re-wrote it.  I've added support for removeListener along with the ability to cut off the number of async calls the library will trace.  I hope you like it!
 
 Please thank [tlrobinson](https://github.com/tlrobinson) for the initial implementation!
 
@@ -53,10 +53,10 @@ longjohn.empty_frame = 'ASYNC CALLBACK';  // defaults to '----------------------
 
 ## Use with Source Maps
 
-As of version 0.2.9 longjonn supports source maps. Just compile your code down to
-javascript with source map support and run like normal.
+As of version 0.2.9 longjohn supports source maps. Just compile your code down to
+JavaScript with source map support and run like normal.
 
-For coffee-script, this would look like:
+For CoffeeScript, this would look like:
 
 ```bash
 $ coffee --map --compile script.coffee
